@@ -1,0 +1,49 @@
+﻿
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+.home_message {
+    color: lightslategrey;
+    letter-spacing: 4px;
+}
+
+header .navbar-brand {
+    font-size: 22px;
+}
+
+.form-control {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+header {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: lightgray;
+    font-weight: 500;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+

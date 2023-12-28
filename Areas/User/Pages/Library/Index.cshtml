@@ -1,0 +1,36 @@
+﻿@page
+@model Summit.Areas.User.Pages.Library.IndexModel
+
+@{
+    ViewData["Title"] = "Library";
+}
+<div class="page">
+    
+    <h4 class="display-4 w3-panel w3-row-cell w3-round w3-padding w3-pale-red text-center w3-text-indigo " style="font-weight:500;font-size:28px;">
+        Our library contains a variety of educational AND fun content
+        <br>
+        (Videos - Songs - Novels)
+    </h4>
+
+
+
+    <h3 class="display-4 w3-padding-48 w3-center"> Movies and TV cartoons </h3>
+
+    <div class="movies container" style="text-align:center">
+        @foreach (var item in Model.Movie)
+        {
+            <div class="image">
+                <img class="image_img"
+                 src=@Html.DisplayFor(modelItem => item.ThumbnailUrl)>
+                <div class="img_overlay img_overlay__blur">
+                    <div class="img_hover_title">"@Html.DisplayFor(modelItem => item.Name)"</div>
+                    <p class="img_description">@Html.DisplayFor(modelItem => item.Description) </p>
+                    <a class="button" href="https://www.youtube.com/watch?v=hQgzpiBoIqI">مشاهدة </a>
+
+                </div>
+                <h4> @Html.DisplayFor(modelItem => item.Name) </h4>
+            </div>
+        }
+    </div>
+
+</div>

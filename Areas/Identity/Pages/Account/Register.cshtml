@@ -1,0 +1,279 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post" style="font-weight:600">
+
+    <div class="col">
+        <div class="row">
+
+
+            <div class="w3-container w3-cell w3-third ">
+
+                <h1>@ViewData["Title"]</h1>
+                <br />
+                <h4>SUMMIT student registration form:</h4>
+                <h6 style="color:red">all fields marked with * are required fields</h6>
+
+            </div>
+
+
+            <div class="w3-cell w3-container w3-third">
+            </div>
+
+
+            <div class=" w3-container w3-cell w3-third">
+
+                <img src="https://st3.depositphotos.com/35530942/37682/v/380/depositphotos_376824262-stock-illustration-online-registration-sign-concept-young.jpg?forcejpeg=true" />
+            </div>
+        </div>
+
+        <h4 class="w3-text-deep-purple">Account info</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.Email">Email *</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" />
+
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.Password">Password *</label>
+
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+
+        <br />
+        <h4 class="w3-text-deep-purple">Child info</h4>
+        <div class="row">
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.ChildName">Full name *</label>
+
+                <input asp-for="Input.ChildName" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="Input.ChildName" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.Gender">Gender *</label>
+
+                <select asp-for="Input.Gender" class="form-control">
+                    <option value="Male" selected="selected">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.DateOfBirth">Birth Date *</label>
+
+                <input asp-for="Input.DateOfBirth" class="form-control" type="date" aria-required="true" />
+
+                <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.LanguageToLearn">The language you wish to teach your child *</label>
+
+                <select asp-for="Input.LanguageToLearn " class="form-control">
+                    <option value="Arabic" selected="selected">Arabic</option>
+
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Chineses">Chineses</option>
+                </select>
+                <span asp-validation-for="Input.LanguageToLearn" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.CanSpeakTheLanguage">Can he speak this language? *</label>
+
+                <select asp-for="Input.CanSpeakTheLanguage " class="form-control">
+                    <option value="Yes" selected="selected">Yes</option>
+
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Input.CanSpeakTheLanguage" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.DidStudyLanguageToLearnBefore">Did he study this language beafore? *</label>
+
+                <select asp-for="Input.DidStudyLanguageToLearnBefore " class="form-control">
+                    <option value="Yes" selected="selected">Yes</option>
+
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Input.DidStudyLanguageToLearnBefore" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.LvlAtLanguage">Your child level at this language*</label>
+
+                <select asp-for="Input.LvlAtLanguage " class="form-control">
+                    <option value="Beginner" selected="selected">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                <span asp-validation-for="Input.LvlAtLanguage" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.HomeAddress">Home address *</label>
+
+                <textarea asp-for="Input.HomeAddress" class="form-control" aria-required="true" cols="40" rows="3"></textarea>
+                <span asp-validation-for="Input.HomeAddress" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.Country">Country *</label>
+
+                <input asp-for="Input.Country" class="form-control" autocomplete="Country" aria-required="true" />
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.City">City *</label>
+
+                <input asp-for="Input.City" class="form-control" aria-required="true">
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.PhoneNumber">Phone number *</label>
+
+                <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="PhoneNumber" aria-required="true" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.ChildGuardian">Guardian *</label>
+
+                <select asp-for="Input.ChildGuardian " class="form-control">
+                    <option value="Father" selected="selected">The father</option>
+                    <option value="Mother">The mother</option>
+                    <option value="Both parents">Both parents</option>
+                </select>
+                <span asp-validation-for="Input.ChildGuardian" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+        <br />
+
+        <h4 class="w3-text-deep-purple">Parents info</h4>
+        <div class="row">
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.FatherName">Father Name *</label>
+
+                <input asp-for="Input.FatherName" class="form-control" aria-required="true">
+                <span asp-validation-for="Input.FatherName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-floating">
+                <label asp-for="Input.MotherName">Mother Name *</label>
+
+                <input asp-for="Input.MotherName" class="form-control" autocomplete="MotherName" aria-required="true" />
+                <span asp-validation-for="Input.MotherName" class="text-danger"></span>
+            </div>
+
+
+        </div>
+        
+        <div class="w3-cell w3-container w3-padding-48" >
+           @*
+           <button type="submit" class="w3-button btn-primary w-100 w3-round w3-deep-orange w3-no-border">Register</button>
+
+           *@
+                        <button type="submit" class="btn btn-primary">Register</button>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</form>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
+@*
+
+*@
+@*
+
+    @page
+    @model RegisterModel
+    @{
+    ViewData["Title"] = "Register";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+    <div class="col-md-4">
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <h4>Create a new account.</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+    <label asp-for="Input.Name"></label>
+    <input asp-for="Input.Name" class="form-control" />
+    <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Input.PhoneNumber"></label>
+    <input asp-for="Input.PhoneNumber" class="form-control" />
+    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Input.Email"></label>
+    <input asp-for="Input.Email" class="form-control" />
+    <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Input.Password"></label>
+    <input asp-for="Input.Password" class="form-control" />
+    <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Input.ConfirmPassword"></label>
+    <input asp-for="Input.ConfirmPassword" class="form-control" />
+    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    @if (User.IsInRole(SummitSchool.Utility.SD.Admin))
+    {
+    <div class="form-group row">
+    <div class="col-6">
+    <input type="radio" name="rdUserRole" value="@SummitSchool.Utility.SD.User" checked />@SummitSchool.Utility.SD.User
+    </div>
+    <div class="col-6">
+    <input type="radio" name="rdUserRole" value="@SummitSchool.Utility.SD.Admin" />@SummitSchool.Utility.SD.Admin
+    </div>
+    </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    </div>
+
+    </div>
+
+    @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    }
+*@

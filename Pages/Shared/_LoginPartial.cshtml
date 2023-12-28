@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SummitSchool.Areas.Identity.Pages.Account
+@using SummitSchool.Utility
+
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole(SD.Admin))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark-grey w3-text-deep-orange" asp-area="Admin" asp-page="/Dashboard/Index">Dashboard</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">My Profile</a>
+            </li>
+        }
+
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("Logout")">
+                <button type="submit" class="nav-link w3-button  w3-mobile w3-hover-none text-red w3-hover-text-red" style="font-weight:600">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link w3-button w3-mobile w3-hover-none w3-text-deep-orange w3-hover-text-deep-orange" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark w3-hover-text-deep-purple" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>

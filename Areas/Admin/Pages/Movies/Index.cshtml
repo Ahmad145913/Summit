@@ -1,0 +1,60 @@
+﻿@page
+@model SummitSchool.Areas.Admin.Pages.Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Movies Library";
+}
+
+<h6 class="display-4">Manage Movies Library</h6>
+
+<p>
+    <a class="btn" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ThumbnailUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Movie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                <img src=@Html.DisplayFor(modelItem => item.ThumbnailUrl) />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

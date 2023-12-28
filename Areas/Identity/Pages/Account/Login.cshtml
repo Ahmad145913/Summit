@@ -1,0 +1,60 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="w3-row w3-mobile w3-display-container w3-padding-top-48">
+    
+    <div class="w3-third w3-left  w3-mobile">
+        <h2 class="text-center w3-margin-bottom">Welcome Back!</h2>
+
+
+        <img style="width:100%;" src="https://gumlet.assettype.com/thebridgechronicle%2F2021-01%2F3d9d6209-15ba-4213-8f75-c424a27003b0%2FBack_to_School_Illustration.jpg?format=auto" />
+
+    </div>
+    <div class="w3-display-container w3-mobile w3-rest"></div>
+
+    <div class="w3-third w3-right w3-mobile">
+        <section>
+            <form id="account" method="post">
+                <h4 style="">Login to your account</h4>
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <label asp-for="Input.Email" class="form-label"></label>
+
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-floating">
+                    <label asp-for="Input.Password" class="form-label"></label>
+
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+               
+                <br />
+                <div>
+                    <button id="login-submit" type="submit" class="w3-button w-100 w3-round w3-deep-orange w3-no-border w3-hover-deep-purple btn-lg btn-primary">Log in</button>
+                </div>
+                <br />
+
+                <div>
+                    <p style="font-weight:500">
+                        Don't have an account? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register now!</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="./_ValidationScriptsPartial" />
+}
